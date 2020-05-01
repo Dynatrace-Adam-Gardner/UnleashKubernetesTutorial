@@ -60,7 +60,7 @@ docker build -t app . && docker run -d --name app --network agardner-net app
 
 ## Build and Run the NGINX Reverse Proxy
 ```
-docker build -t proxy ./proxy && docker run -d -p 80:80 --name proxy --network agardner-net -e keptn_project=website -e keptn_service=front-end -e keptn_stage=production proxy
+docker build -t proxy ./proxy && docker run -d -p 80:80 --name proxy --network agardner-net -e DT_CUSTOM_PROP="keptn_project=website keptn_service=front-end keptn_stage=production" proxy
 ```
 
 ## Test The Application
@@ -82,8 +82,7 @@ Prove that the feature flag works:
 ## Cleanup
 To remove everything installed / configured for this demo:
 ```
-docker stop app && docker rm app && docker rmi app
-docker stop proxy && docker rm proxy && docker rmi proxy
-docker stop unleash && docker rm unleash && docker rmi unleash
-docker stop postgres && docker rm postgres && docker rmi postgres
+docker stop app && docker stop proxy && docker stop unleash && docker stop postgres
+docker rm app && docker rm proxy && docker rm unleash && docker rm postgres
+docker rmi app && docker rmi proxy && docker rmi unleash && docker rmi postgres
 ```
