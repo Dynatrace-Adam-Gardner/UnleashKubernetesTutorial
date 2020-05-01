@@ -27,6 +27,7 @@ docker network create my-net
 ```
 sudo apt update && sudo apt install git -y
 git clone https://github.com/agardnerit/unleashtutorial
+cd unleashtutorial
 ```
 
 ## Run a PostGresDB for Unleash
