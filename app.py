@@ -14,8 +14,8 @@ def do_homepage():
   if statusCode == "500":
     return 500;
 
-  if client.is_enabled("NormalDelivery", default_value=True):
-    return current_app.send_static_file('index.html')
+  if client.is_enabled("EnableStaticContent"):
+    r = requests.get('https://raw.githubusercontent.com/agardnerIT/OddFiles/master/index2.html')
+    return r.text
   else:
-   r = requests.get('https://raw.githubusercontent.com/agardnerIT/OddFiles/master/index2.html')
-   return r.text
+    return current_app.send_static_file('index.html')
