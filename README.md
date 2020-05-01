@@ -6,14 +6,15 @@ Application is running in production and suddenly an error occurs. The app shoul
 
 ----
 
-This tutorial will run 3x containers on your localhost.
+This tutorial will run 4x containers on your localhost.
 
-1. A postgresdb container
+1. An nginx reverse proxy to access flask app on port `80` (`http://127.0.0.1`)
 1. An unleash feature flag container (`http://127.0.0.1:4242`)
-1. A flask webserver app (`http://127.0.0.1:5000`)
+1. A flask webserver app (Accessed via reverse proxy on port `80`)
+1. A PostGRES Database container
 
-If the feature flag is `enabled` the flask app will serve `index.html` from within the container.
-If the feature flag is `disabled` the flask app will serve a page hosted on GitHub (`https://raw.githubusercontent.com/agardnerIT/OddFiles/master/index2.html`)
+If the feature flag is `disabled` the flask app will serve `index.html` from within the container.
+If the feature flag is `enabled` the flask app will serve a page hosted on GitHub (`https://raw.githubusercontent.com/agardnerIT/OddFiles/master/index2.html`)
 
 ## Create New Docker Network
 This allows containers to talk to each other via their container name.
@@ -44,5 +45,5 @@ Navigate to `http://127.0.0.1:4242` to validate that Unleash is running.
 This flask app has a feature flag coded into it called `EnableStaticContent`.
 
 ```
-docker build -t flask-app . && docker run -d -p 5000:5000 --name flask-app --network my-net -e keptn_project=website -e keptn_service=front-end -e keptn_stage=production flask-app
+docker build -t flask-app . && docker run -d --name flask-app --network my-net -e keptn_project=website -e keptn_service=front-end -e keptn_stage=production flask-app
 ```
