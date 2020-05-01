@@ -8,13 +8,13 @@ Application is running in production and suddenly an error occurs. The app shoul
 
 This tutorial will run 4x containers on your VM. You'll need the OneAgent deployed on this VM first.
 
-1. An nginx reverse proxy to access flask app on port `80` (`http://127.0.0.1`)
+1. An nginx reverse proxy to access app on port `80` (`http://127.0.0.1`)
 1. An unleash feature flag container (`http://127.0.0.1/unleash`)
-1. A flask webserver app (Accessed via reverse proxy on port `80`)
+1. The app container (Accessed via reverse proxy on port `80`)
 1. A PostGRES Database container
 
-If the feature flag is `disabled` the flask app will serve `index.html` from within the container.
-If the feature flag is `enabled` the flask app will serve a page hosted on GitHub (`https://raw.githubusercontent.com/agardnerIT/OddFiles/master/index2.html`)
+If the feature flag is `disabled` the app will serve `index.html` from within the container.
+If the feature flag is `enabled` the app will serve a page hosted on GitHub (`https://raw.githubusercontent.com/agardnerIT/OddFiles/master/index2.html`)
 
 ## Deploy the OneAgent
 Deploy the OneAgent on your VM.
@@ -51,8 +51,8 @@ docker run -d --name unleash --network agardner-net -e DATABASE_URL=postgres://p
 
 Navigate to `http://127.0.0.1/unleash` to validate that Unleash is running.
 
-## Build and Run the Flask App
-This flask app has a feature flag coded into it called `EnableStaticContent`.
+## Build and Run the App
+This app has a feature flag coded into it called `EnableStaticContent`.
 
 ```
 docker build -t app . && docker run -d --name app --network agardner-net app
@@ -64,8 +64,8 @@ docker build -t proxy ./proxy && docker run -d -p 80:80 --name proxy --network a
 ```
 
 ## Test The Application
-- Unleash should now be available on `http://127.0.0.1/unleash`
-- The flask app should now be available on `http://127.0.0.1`
+- The Unleash UI should now be available on `http://127.0.0.1/unleash`
+- The app should now be available on `http://127.0.0.1`
 
 ## Create Feature Flag
 - Go to `http://127.0.0.1/unleash` and login (use a fake email - anything you like)
