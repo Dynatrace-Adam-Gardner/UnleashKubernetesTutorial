@@ -45,5 +45,5 @@ Navigate to `http://127.0.0.1:4242` to validate that Unleash is running.
 This flask app has a feature flag coded into it called `myFirstFlag`.
 
 ```
-docker build -t flask-app . && docker run -d -p 5000:5000 --name flask-app --network my-net flask-app
+docker build -t flask-app . && docker run -d -p 5000:5000 --name flask-app --network my-net -e keptn_project=website -e keptn_service=front-end -e keptn_stage=production flask-app
 ```
