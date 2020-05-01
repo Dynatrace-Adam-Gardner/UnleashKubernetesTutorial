@@ -23,6 +23,12 @@ This allows containers to talk to each other via their container name.
 docker network create my-net
 ```
 
+## Clone This Repo
+```
+sudo apt update && sudo apt install git -y
+git clone https://github.com/agardnerit/unleashtutorial
+```
+
 ## Run a PostGresDB for Unleash
 ```
 docker run -d --name postgres --network my-net -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_DB=unleash postgres
@@ -45,5 +51,14 @@ Navigate to `http://127.0.0.1:4242` to validate that Unleash is running.
 This flask app has a feature flag coded into it called `EnableStaticContent`.
 
 ```
-docker build -t flask-app . && docker run -d --name flask-app --network my-net -e keptn_project=website -e keptn_service=front-end -e keptn_stage=production flask-app
+docker build -t flask-app . && docker run -d --name flask-app --network my-net flask-app
 ```
+
+## Build and Run the NGINX Reverse Proxy
+```
+docker build -t reverse-proxy ~/unleashtutorial/nginx/Dockerfile && docker run -d -p 80:80 --name reverse-proxy --network my-net -e keptn_project=website -e keptn_service=front-end -e keptn_stage=production reverse-proxy
+```
+
+## Test The Application
+- Unleash should now be available on `http://127.0.0.1:4242`
+- The flask app should now be available on `http://127.0.0.1`
