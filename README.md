@@ -1,5 +1,4 @@
-# UnleashTutorial
-Unleash Feature Flag Tutorial.
+# Unleash Feature Flag Tutorial
 
 How can we protect our applications from unexpected errors and load spikes by using feature flags to offload traffic to CDNs during errors.
 
