@@ -45,7 +45,7 @@ Password = `mysecretpassword`
 
 ## Run the Unleash Container
 ```
-docker run -d --name unleash --network unleash-net -e DATABASE_URL=postgres://postgres:mysecretpassword@postgres:5432/unleash unleashorg/unleash-server
+docker run -d --name unleash --network agardner-net -e DATABASE_URL=postgres://postgres:mysecretpassword@postgres:5432/unleash unleashorg/unleash-server
 ```
 (FYI: Runs on `4242`)
 
@@ -55,12 +55,12 @@ Navigate to `http://127.0.0.1/unleash` to validate that Unleash is running.
 This flask app has a feature flag coded into it called `EnableStaticContent`.
 
 ```
-docker build -t app . && docker run -d --name app --network my-net app
+docker build -t app . && docker run -d --name app --network agardner-net app
 ```
 
 ## Build and Run the NGINX Reverse Proxy
 ```
-docker build -t proxy ./proxy && docker run -d -p 80:80 --name proxy --network my-net -e keptn_project=website -e keptn_service=front-end -e keptn_stage=production proxy
+docker build -t proxy ./proxy && docker run -d -p 80:80 --name proxy --network agardner-net -e keptn_project=website -e keptn_service=front-end -e keptn_stage=production proxy
 ```
 
 ## Test The Application
