@@ -73,6 +73,7 @@ docker build -t reverse-proxy ./proxy && docker run -d -p 80:80 --name reverse-p
 - Set the flag to `disabled`
 
 ## Manually Test Flag
-Let's prove
+Prove that the feature flag works:
+
 - Go to the app (`http://127.0.0.1`) and refresh the page. Nothing happens.
 - Enable the feature flag and refresh the app. You'll see a green banner that says the page is served from GitHub.
