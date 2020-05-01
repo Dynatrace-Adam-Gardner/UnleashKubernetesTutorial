@@ -56,7 +56,7 @@ docker build -t flask-app . && docker run -d --name flask-app --network my-net f
 
 ## Build and Run the NGINX Reverse Proxy
 ```
-docker build -t reverse-proxy ~/unleashtutorial/nginx/Dockerfile && docker run -d -p 80:80 --name reverse-proxy --network my-net -e keptn_project=website -e keptn_service=front-end -e keptn_stage=production reverse-proxy
+docker build -t reverse-proxy ~/unleashtutorial/proxy/Dockerfile && docker run -d -p 80:80 --name reverse-proxy --network my-net -e keptn_project=website -e keptn_service=front-end -e keptn_stage=production reverse-proxy
 ```
 
 ## Test The Application
