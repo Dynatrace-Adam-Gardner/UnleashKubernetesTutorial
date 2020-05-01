@@ -42,7 +42,7 @@ Runs on `4242`
 Navigate to `http://127.0.0.1:4242` to validate that Unleash is running.
 
 ## Build and Run the Flask App
-This flask app has a feature flag coded into it called `myFirstFlag`.
+This flask app has a feature flag coded into it called `NormalDelivery`.
 
 ```
 docker build -t flask-app . && docker run -d -p 5000:5000 --name flask-app --network my-net -e keptn_project=website -e keptn_service=front-end -e keptn_stage=production flask-app
