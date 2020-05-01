@@ -9,7 +9,7 @@ Application is running in production and suddenly an error occurs. The app shoul
 This tutorial will run 4x containers on your VM. You'll need the OneAgent deployed on this VM first.
 
 1. An nginx reverse proxy to access flask app on port `80` (`http://127.0.0.1`)
-1. An unleash feature flag container (`http://127.0.0.1:4242`)
+1. An unleash feature flag container (`http://127.0.0.1/unleash`)
 1. A flask webserver app (Accessed via reverse proxy on port `80`)
 1. A PostGRES Database container
 
@@ -41,15 +41,15 @@ Database = `unleash`
 Username = `postgres`
 Password = `mysecretpassword`
 
-Runs on `5432`
+(FYI: Runs on `5432`)
 
 ## Run the Unleash Container
 ```
-docker run -d -p 4242:4242 --name unleash --network my-net -e DATABASE_URL=postgres://postgres:mysecretpassword@postgres:5432/unleash unleashorg/unleash-server
+docker run -d --name unleash --network my-net -e DATABASE_URL=postgres://postgres:mysecretpassword@postgres:5432/unleash unleashorg/unleash-server
 ```
-Runs on `4242`
+(FYI: Runs on `4242`)
 
-Navigate to `http://127.0.0.1:4242` to validate that Unleash is running.
+Navigate to `http://127.0.0.1/unleash` to validate that Unleash is running.
 
 ## Build and Run the Flask App
 This flask app has a feature flag coded into it called `EnableStaticContent`.
@@ -64,11 +64,11 @@ docker build -t reverse-proxy ./proxy && docker run -d -p 80:80 --name reverse-p
 ```
 
 ## Test The Application
-- Unleash should now be available on `http://127.0.0.1:4242`
+- Unleash should now be available on `http://127.0.0.1/unleash`
 - The flask app should now be available on `http://127.0.0.1`
 
 ## Create Feature Flag
-- Go to `http://127.0.0.1:4242` and login (use a fake email - anything you like)
+- Go to `http://127.0.0.1/unleash` and login (use a fake email - anything you like)
 - Create a feature flag called `EnableStaticContent` (case sensitive and must be called this).
 - Set the flag to `disabled`
 
