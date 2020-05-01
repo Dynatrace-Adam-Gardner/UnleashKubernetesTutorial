@@ -6,7 +6,7 @@ Application is running in production and suddenly an error occurs. The app shoul
 
 ----
 
-This tutorial will run 4x containers on your localhost.
+This tutorial will run 4x containers on your VM. You'll need the OneAgent deployed on this VM first.
 
 1. An nginx reverse proxy to access flask app on port `80` (`http://127.0.0.1`)
 1. An unleash feature flag container (`http://127.0.0.1:4242`)
@@ -15,6 +15,9 @@ This tutorial will run 4x containers on your localhost.
 
 If the feature flag is `disabled` the flask app will serve `index.html` from within the container.
 If the feature flag is `enabled` the flask app will serve a page hosted on GitHub (`https://raw.githubusercontent.com/agardnerIT/OddFiles/master/index2.html`)
+
+## Deploy the OneAgent
+Deploy the OneAgent on your VM.
 
 ## Create New Docker Network
 This allows containers to talk to each other via their container name.
@@ -63,3 +66,13 @@ docker build -t reverse-proxy ./proxy && docker run -d -p 80:80 --name reverse-p
 ## Test The Application
 - Unleash should now be available on `http://127.0.0.1:4242`
 - The flask app should now be available on `http://127.0.0.1`
+
+## Create Feature Flag
+- Go to `http://127.0.0.1:4242` and login (use a fake email - anything you like)
+- Create a feature flag called `EnableStaticContent` (case sensitive and must be called this).
+- Set the flag to `disabled`
+
+## Manually Test Flag
+Let's prove
+- Go to the app (`http://127.0.0.1`) and refresh the page. Nothing happens.
+- Enable the feature flag and refresh the app. You'll see a green banner that says the page is served from GitHub.
