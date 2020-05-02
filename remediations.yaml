@@ -1,0 +1,5 @@
+remediations:
+- name: "Failure rate increase"
+  actions:
+  - action: featuretoggle
+    value: EnableStaticContent:on
