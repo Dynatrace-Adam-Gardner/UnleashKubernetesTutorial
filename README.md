@@ -35,7 +35,7 @@ docker network create agardner-net
 
 # Clone This Repo
 ```
-sudo apt update && sudo apt install git -y
+sudo apt update && sudo apt install git docker.io -y
 git clone https://github.com/agardnerit/unleashtutorial
 cd unleashtutorial && chmod +x loadGenErrors.sh
 ```
