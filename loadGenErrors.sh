@@ -1,5 +1,5 @@
 while true
 do
-  curl -s "http://localhost?statusCode=500" > /dev/null
+  curl -s "$1?statusCode=500"
   sleep 5s
 done
