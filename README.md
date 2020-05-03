@@ -10,7 +10,9 @@ Application is running in production and suddenly an error occurs. The app shoul
 
 - A full Keptn installation
 - Dynatrace monitoring installed and configured on the Keptn machine.
+- An Ubuntu VM used to host your website and the Unleash Feature Flag service.
 
+# Tutorial Overview
 This tutorial will run 4x containers on your VM. You'll need the OneAgent deployed on this VM first.
 
 1. An nginx reverse proxy to access app on port `80` (`http://127.0.0.1`)
