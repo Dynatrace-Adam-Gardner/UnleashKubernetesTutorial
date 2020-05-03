@@ -9,7 +9,7 @@ Application is running in production and suddenly an error occurs. The app shoul
 # Prerequisites
 
 - A full Keptn installation
-- Dynatrace monitoring installed and configured on the Keptn machine.
+- [Dynatrace monitoring and the Dynatrace SLI Provider](https://keptn.sh/docs/0.6.0/reference/monitoring/dynatrace/) installed and configured on the Keptn machine.
 - An Ubuntu VM used to host your website and the Unleash Feature Flag service.
 
 # Tutorial Overview
@@ -101,9 +101,9 @@ Ensure that your service is tagged with the following:
 
 `keptn_project:website`, `keptn_service:front-end` and `keptn_stage:production`
 
-These tags are created when you [installed the `dynatrace-service` on Keptn](https://keptn.sh/docs/0.6.0/reference/monitoring/dynatrace) . If you do not see these tags, please STOP and ensure you follow this instructions linked above.
+These tags are created when you [installed the Dynatrace service on Keptn](https://keptn.sh/docs/0.6.0/reference/monitoring/dynatrace) . If you do not see these tags, please **STOP** and ensure you follow this instructions linked above.
 
-This tutorial WILL NOT WORK without those tags.
+This tutorial **WILL NOT WORK** without those tags.
 
 ----
 
