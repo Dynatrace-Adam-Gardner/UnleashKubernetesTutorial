@@ -23,24 +23,24 @@ This tutorial will run 4x containers on your VM. You'll need the OneAgent deploy
 If the feature flag is `disabled` the app will serve `index.html` from within the container.
 If the feature flag is `enabled` the app will serve a page hosted on GitHub (`https://raw.githubusercontent.com/agardnerIT/OddFiles/master/index2.html`)
 
-## Deploy the OneAgent
+# Deploy the OneAgent
 Deploy the OneAgent on your VM.
 
-## Create New Docker Network
+# Create New Docker Network
 This allows containers to talk to each other via their container name.
 
 ```
 docker network create agardner-net
 ```
 
-## Clone This Repo
+# Clone This Repo
 ```
 sudo apt update && sudo apt install git -y
 git clone https://github.com/agardnerit/unleashtutorial
 cd unleashtutorial && chmod +x loadGenErrors.sh
 ```
 
-## Run a PostGresDB for Unleash
+# Run a PostGresDB for Unleash
 ```
 docker run -d --name postgres --network agardner-net -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_DB=unleash postgres
 ```
@@ -48,35 +48,35 @@ Database = `unleash`
 Username = `postgres`
 Password = `mysecretpassword`
 
-## Build & Run the Unleash Container
+# Build & Run the Unleash Container
 ```
 docker build -t unleash ./unleash && docker run -d --name unleash --network agardner-net -e DATABASE_URL=postgres://postgres:mysecretpassword@postgres:5432/unleash unleashorg/unleash-server
 ```
 
 Navigate to `http://127.0.0.1/unleash` to validate that Unleash is running.
 
-## Build and Run the App
+# Build and Run the App
 This app has a feature flag coded into it called `EnableStaticContent`.
 
 ```
 docker build -t app . && docker run -d --name app --network agardner-net app
 ```
 
-## Build and Run the NGINX Reverse Proxy
+# Build and Run the NGINX Reverse Proxy
 ```
 docker build -t proxy ./proxy && docker run -d -p 80:80 --name proxy --network agardner-net -e DT_CUSTOM_PROP="keptn_project=website keptn_service=front-end keptn_stage=production" proxy
 ```
 
-## Test The Application
+# Test The Application
 - The Unleash UI should now be available on `http://127.0.0.1/unleash`
 - The app should now be available on `http://127.0.0.1`
 
-## Create Feature Flag
+# Create Feature Flag
 - Go to `http://127.0.0.1/unleash` and login (use a fake email - anything you like)
 - Create a feature flag called `EnableStaticContent` (case sensitive and must be called this).
 - Set the flag to `disabled`
 
-## Manually Test Flag
+# Manually Test Flag
 Prove that the feature flag works:
 
 - Go to the app (`http://127.0.0.1`) and refresh the page. Nothing happens.
@@ -84,10 +84,11 @@ Prove that the feature flag works:
 
 Once done, set the flag to `disabled` so that traffic is being served by the app.
 
----
+----
+
 > The following instructions should all be executed on the Keptn machine.
 
-## Clone Repo to Keptn Machine, Create Keptn Project & Service
+# Clone Repo to Keptn Machine, Create Keptn Project & Service
 ```
 cd ~
 git clone http://github.com/agardnerit/unleashtutorial
@@ -97,27 +98,27 @@ keptn create service front-end --project=website
 keptn add-resource --project=website --service=front-end --stage=production --resource=remediations.yaml -- resourceUri=remediation.yaml
 ```
 
-## Create Keptn Secret & Bounce Remediation Service
-Note that the username and token can be set to anything.
+# Create Keptn Secret & Bounce Remediation Service
+Note that the `username` and `token` can be set to anything.
 
-The remediation-service pod must be recreated so that it picks up this new secret.
+The `remediation-service` pod must be recreated so that it picks up this new secret.
 
 ```
 kubectl create secret -n keptn generic unleash --from-literal="UNLEASH_SERVER=http://<YOUR-VM-IP>/unleash/api" --from-literal="UNLEASH_USER="me" --from-literal="UNLEASH_TOKEN=whatever"
 kubectl delete pod -n keptn -l "run=remediation-service"
 ```
 
-## Configure Problem Sensitivity
+# Configure Problem Sensitivity
 For demo purposes, we will set Dynatrace to be extremely sensitive to failures.
 Find the `unleash-demo:80 nginx` service, edit the settings and set the failure rate detection to manual and sensitivity to high.
 
-## Load Generator
+# Load Generator
 
 Run the load generator which will create errors. In another tab, keep refreshing the page and in a few minutes (when DT raises a problem) you'll see the website failover to the green static hosted content.
 
 ----
 
-## Cleanup
+# Cleanup
 To remove everything installed / configured for this demo:
 ```
 docker stop proxy app unleash postgres
