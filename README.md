@@ -110,7 +110,7 @@ kubectl delete pod -n keptn -l "run=remediation-service"
 
 # Configure Problem Sensitivity
 For demo purposes, we will set Dynatrace to be extremely sensitive to failures.
-Find the `unleash-demo:80 nginx` service, edit the settings and set the failure rate detection to manual and sensitivity to high.
+Find the `unleash-demo:80` nginx service, edit the settings and set the failure rate detection to manual and sensitivity to high.
 
 # Load Generator
 
