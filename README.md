@@ -93,6 +93,18 @@ Prove that the feature flag works:
 
 Once done, set the flag to `disabled` so that traffic is being served by the app.
 
+# Validate Dynatrace Tags
+
+In your Dynatrace tenant, open the `Transactions and Services` page and navigate to the `unleash-demo` service.
+
+Ensure that your service is tagged with the following:
+
+`keptn_project:website`, `keptn_service:front-end` and `keptn_stage:production`
+
+These tags are created when you [installed the `dynatrace-service` on Keptn](https://keptn.sh/docs/0.6.0/reference/monitoring/dynatrace) . If you do not see these tags, please STOP and ensure you follow this instructions linked above.
+
+This tutorial WILL NOT WORK without those tags.
+
 ----
 
 > The following instructions should be executed on the Keptn machine.
