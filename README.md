@@ -6,6 +6,11 @@ Application is running in production and suddenly an error occurs. The app shoul
 
 ----
 
+# Prerequisites
+
+- A full Keptn installation
+- Dynatrace monitoring installed and configured on the Keptn machine.
+
 This tutorial will run 4x containers on your VM. You'll need the OneAgent deployed on this VM first.
 
 1. An nginx reverse proxy to access app on port `80` (`http://127.0.0.1`)
@@ -75,6 +80,40 @@ Prove that the feature flag works:
 - Go to the app (`http://127.0.0.1`) and refresh the page. Nothing happens.
 - Enable the feature flag and refresh the app. You'll see a green banner that says the page is served from GitHub.
 
+Once done, set the flag to `disabled` so that traffic is being served by the app.
+
+---
+> The following instructions should all be executed on the Keptn machine.
+
+## Clone Repo to Keptn Machine, Create Keptn Project & Service
+```
+cd ~
+git clone http://github.com/agardnerit/unleashtutorial
+cd unleashtutorial
+keptn create project website --shipyard=shipyard.yaml
+keptn create service front-end --project=website
+keptn add-resource --project=website --service=front-end --stage=production --resource=remediations.yaml -- resourceUri=remediation.yaml
+```
+
+## Create Keptn Secret & Bounce Remediation Service
+Note that the username and token can be set to anything.
+
+The remediation-service pod must be recreated so that it picks up this new secret.
+
+```
+kubectl create secret -n keptn generic unleash --from-literal="UNLEASH_SERVER=http://<YOUR-VM-IP>/unleash/api" --from-literal="UNLEASH_USER="me" --from-literal="UNLEASH_TOKEN=whatever"
+kubectl delete pod -n keptn -l "run=remediation-service"
+```
+
+## Configure Problem Sensitivity
+For demo purposes, we will set Dynatrace to be extremely sensitive to failures.
+Find the `unleash-demo:80 nginx` service, edit the settings and set the failure rate detection to manual and sensitivity to high.
+
+## Load Generator
+
+Run the load generator which will create errors. In another tab, keep refreshing the page and in a few minutes (when DT raises a problem) you'll see the website failover to the green static hosted content.
+
+----
 
 ## Cleanup
 To remove everything installed / configured for this demo:
