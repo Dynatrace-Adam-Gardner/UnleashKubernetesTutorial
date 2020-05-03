@@ -30,7 +30,7 @@ docker network create agardner-net
 ```
 sudo apt update && sudo apt install git -y
 git clone https://github.com/agardnerit/unleashtutorial
-cd unleashtutorial
+cd unleashtutorial && chmod +x loadGenErrors.sh
 ```
 
 ## Run a PostGresDB for Unleash
