@@ -73,7 +73,10 @@ docker build -t app . && docker run -d --name app --network agardner-net app
 docker build -t proxy ./proxy && docker run -d -p 80:80 --name proxy --network agardner-net -e DT_CUSTOM_PROP="keptn_project=website keptn_service=front-end keptn_stage=production" proxy
 ```
 
-# Test The Application
+# Validate Containers
+
+Running `docker ps` should show 4x containers: `proxy`, `app`, `unleash` and `postgres`.
+
 - The Unleash UI should now be available on `http://<VM-IP>/unleash`
 - The app should now be available on `http://<VM-IP>`
 
