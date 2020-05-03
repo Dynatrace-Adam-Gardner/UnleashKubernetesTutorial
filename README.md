@@ -104,7 +104,7 @@ Note that the `username` and `token` can be set to anything.
 The `remediation-service` pod must be recreated so that it picks up this new secret.
 
 ```
-kubectl create secret -n keptn generic unleash --from-literal="UNLEASH_SERVER=http://<YOUR-VM-IP>/unleash/api" --from-literal="UNLEASH_USER="me" --from-literal="UNLEASH_TOKEN=whatever"
+kubectl create secret -n keptn generic unleash --from-literal="UNLEASH_SERVER=http://<YOUR-VM-IP>/unleash/api" --from-literal="UNLEASH_USER=me" --from-literal="UNLEASH_TOKEN=whatever"
 kubectl delete pod -n keptn -l "run=remediation-service"
 ```
 
