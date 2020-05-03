@@ -85,4 +85,5 @@ To remove everything installed / configured for this demo:
 docker stop app && docker stop proxy && docker stop unleash && docker stop postgres
 docker rm app && docker rm proxy && docker rm unleash && docker rm postgres
 docker rmi app && docker rmi proxy && docker rmi unleash && docker rmi postgres
+docker network rm agardner-net
 ```
