@@ -114,7 +114,14 @@ Find the `unleash-demo:80` nginx service, edit the settings and set the failure 
 
 # Load Generator
 
+> Run this on the VM hosting the website.
+
 Run the load generator which will create errors. In another tab, keep refreshing the page and in a few minutes (when DT raises a problem) you'll see the website failover to the green static hosted content.
+
+```
+cd ~/unleashtutorial
+./loadGenErrors.sh
+```
 
 ----
 
