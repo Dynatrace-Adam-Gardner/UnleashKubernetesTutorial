@@ -81,7 +81,7 @@ Running `docker ps` should show 4x containers: `proxy`, `app`, `unleash` and `po
 - The app should now be available on `http://<VM-IP>`
 
 # Create Feature Flag
-- Go to `http://<VM-IP>/unleash` and login (use a fake email - anything you like)
+- Go to `http://<VM-IP>/unleash` and login (use any fake values you like to login)
 - Create a feature flag called `EnableStaticContent` (case sensitive and must be called this).
 - Set the flag to `disabled`
 
