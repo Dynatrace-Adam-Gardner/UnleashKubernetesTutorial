@@ -61,8 +61,6 @@ Password = `mysecretpassword`
 docker build -t unleash ./unleash && docker run -d --name unleash --network agardner-net -e DATABASE_URL=postgres://postgres:mysecretpassword@postgres:5432/unleash unleash
 ```
 
-Navigate to `http://127.0.0.1/unleash` to validate that Unleash is running.
-
 # Build and Run the App
 This app has a feature flag coded into it called `EnableStaticContent`.
 
@@ -76,18 +74,18 @@ docker build -t proxy ./proxy && docker run -d -p 80:80 --name proxy --network a
 ```
 
 # Test The Application
-- The Unleash UI should now be available on `http://127.0.0.1/unleash`
-- The app should now be available on `http://127.0.0.1`
+- The Unleash UI should now be available on `http://<VM-IP>/unleash`
+- The app should now be available on `http://<VM-IP>`
 
 # Create Feature Flag
-- Go to `http://127.0.0.1/unleash` and login (use a fake email - anything you like)
+- Go to `http://<VM-IP>/unleash` and login (use a fake email - anything you like)
 - Create a feature flag called `EnableStaticContent` (case sensitive and must be called this).
 - Set the flag to `disabled`
 
 # Manually Test Flag
 Prove that the feature flag works:
 
-- Go to the app (`http://127.0.0.1`) and refresh the page. Nothing happens.
+- Go to the app (`http://<VM-IP>`) and refresh the page. Nothing happens.
 - Enable the feature flag and refresh the app. You'll see a green banner that says the page is served from GitHub.
 
 Once done, set the flag to `disabled` so that traffic is being served by the app.
