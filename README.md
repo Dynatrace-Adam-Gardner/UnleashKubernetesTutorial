@@ -43,7 +43,7 @@ Password = `mysecretpassword`
 
 ## Build & Run the Unleash Container
 ```
-docker build -t unleash unleash. && docker run -d --name unleash --network agardner-net -e DATABASE_URL=postgres://postgres:mysecretpassword@postgres:5432/unleash unleashorg/unleash-server
+docker build -t unleash ./unleash && docker run -d --name unleash --network agardner-net -e DATABASE_URL=postgres://postgres:mysecretpassword@postgres:5432/unleash unleashorg/unleash-server
 ```
 
 Navigate to `http://127.0.0.1/unleash` to validate that Unleash is running.
