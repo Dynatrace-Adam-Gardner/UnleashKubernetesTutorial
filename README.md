@@ -41,13 +41,10 @@ Database = `unleash`
 Username = `postgres`
 Password = `mysecretpassword`
 
-(FYI: Runs on `5432`)
-
-## Run the Unleash Container
+## Build & Run the Unleash Container
 ```
-docker run -d --name unleash --network agardner-net -e DATABASE_URL=postgres://postgres:mysecretpassword@postgres:5432/unleash unleashorg/unleash-server
+docker build -t unleash unleash. && docker run -d --name unleash --network agardner-net -e DATABASE_URL=postgres://postgres:mysecretpassword@postgres:5432/unleash unleashorg/unleash-server
 ```
-(FYI: Runs on `4242`)
 
 Navigate to `http://127.0.0.1/unleash` to validate that Unleash is running.
 
@@ -82,8 +79,8 @@ Prove that the feature flag works:
 ## Cleanup
 To remove everything installed / configured for this demo:
 ```
-docker stop app && docker stop proxy && docker stop unleash && docker stop postgres
-docker rm app && docker rm proxy && docker rm unleash && docker rm postgres
-docker rmi app && docker rmi proxy && docker rmi unleash && docker rmi postgres
+docker stop proxy app unleash postgres
+docker rm proxy app unleash postgres
+docker rmi proxy app unleash postgres
 docker network rm agardner-net
 ```
