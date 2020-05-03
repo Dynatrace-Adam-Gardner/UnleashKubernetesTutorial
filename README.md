@@ -26,18 +26,26 @@ If the feature flag is `enabled` the app will serve a page hosted on GitHub (`ht
 # Deploy the OneAgent
 Deploy the OneAgent on your VM.
 
+# Install & Configure: Git and Docker
+
+```
+sudo apt update && sudo apt install git docker.io -y
+sudo usermod -aG docker $USER
+```
+
+Launch a new terminal window to pick up your new permissions. Validate it works with `docker ps`
+
+# Clone This Repo
+```
+git clone https://github.com/agardnerit/unleashtutorial
+cd unleashtutorial && chmod +x loadGenErrors.sh
+```
+
 # Create New Docker Network
 This allows containers to talk to each other via their container name.
 
 ```
 docker network create agardner-net
-```
-
-# Clone This Repo
-```
-sudo apt update && sudo apt install git docker.io -y
-git clone https://github.com/agardnerit/unleashtutorial
-cd unleashtutorial && chmod +x loadGenErrors.sh
 ```
 
 # Run a PostGresDB for Unleash
