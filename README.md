@@ -95,7 +95,7 @@ Once done, set the flag to `disabled` so that traffic is being served by the app
 
 ----
 
-> The following instructions should all be executed on the Keptn machine.
+> The following instructions should be executed on the Keptn machine.
 
 # Clone Repo to Keptn Machine, Create Keptn Project & Service
 ```
