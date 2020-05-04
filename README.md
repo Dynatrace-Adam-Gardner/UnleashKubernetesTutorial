@@ -143,13 +143,13 @@ keptn create service front-end --project=website
 keptn add-resource --project=website --service=front-end --stage=production --resource=remediations.yaml -- resourceUri=remediation.yaml
 ```
 
-# Create Keptn Secret & Bounce Remediation Service
+# Create Secret & Bounce Remediation Service
 Note that the `username` and `token` can be set to anything.
 
 The `remediation-service` pod must be recreated so that it picks up this new secret.
 
 ```
-kubectl create secret -n keptn generic unleash --from-literal="UNLEASH_SERVER_URL=http://<YOUR-VM-IP>/unleash/api" --from-literal="UNLEASH_USER=me" --from-literal="UNLEASH_TOKEN=whatever"
+kubectl create secret -n keptn generic unleash --from-literal="UNLEASH_SERVER_URL=http://<YOUR-APP-VM-IP>/unleash/api" --from-literal="UNLEASH_USER=me" --from-literal="UNLEASH_TOKEN=whatever"
 kubectl delete pod -n keptn -l "run=remediation-service"
 ```
 
