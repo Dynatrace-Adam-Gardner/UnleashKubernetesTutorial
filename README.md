@@ -28,6 +28,10 @@ This tutorial will run 4x containers on your application VM. You'll need the One
 If the feature flag is `disabled` the app will serve `index.html` from within the container.
 If the feature flag is `enabled` the app will serve a page hosted on GitHub (`https://raw.githubusercontent.com/agardnerIT/OddFiles/master/index2.html`)
 
+----
+
+> Run the following on the application VM.
+
 # Deploy the OneAgent
 Deploy the OneAgent on the application VM.
 
