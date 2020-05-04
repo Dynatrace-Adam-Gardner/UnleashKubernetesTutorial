@@ -181,6 +181,22 @@ cd ~/unleashtutorial
 
 ----
 
+# Debugging / Troubleshooting
+
+Here are some useful commands to assist troubleshooting.
+
+Check the `remediation-service` logs:
+```
+kubectl logs -n keptn -l 'run=remediation-service'
+```
+
+Verify manually that Keptn successfully toggles the feature flag. If successful, the flag should be enabled.
+```
+cd ~/unleashtutorial
+keptn send event -f debug/problemopen.json
+```
+----
+
 # Cleanup
 To remove everything installed / configured for this demo:
 ```
