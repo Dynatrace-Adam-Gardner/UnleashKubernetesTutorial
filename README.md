@@ -112,6 +112,14 @@ These tags are created when you [installed the Dynatrace service on Keptn](https
 
 This tutorial **WILL NOT WORK** without those tags.
 
+# Validate Problem Notification Integration
+
+Keptn automatically configures the problem notification integration when you onboard the Dynatrace Service.
+
+Validate that it's available now. In Dynatrace, go to `Settings > Integration > Problem Notifications` and you should see an entry for Keptn. If you do not see this problem notification, **STOP** and ensure you've installed Dynatrace on the keptn box.
+
+This tutorial **WILL NOT WORK** without this integration.
+
 # Configure Problem Sensitivity
 For demo purposes, we will set Dynatrace to be extremely sensitive to failures.
 Find the `unleash-demo:80` nginx service, edit the anomaly detection settings and set the failure rate detection to manual, the sensitivity to high and the requests per minute level to be `1 request per minute`.
