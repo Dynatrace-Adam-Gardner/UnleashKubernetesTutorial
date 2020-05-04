@@ -12,6 +12,11 @@ Application is running in production and suddenly an error occurs. The app shoul
 - [Dynatrace monitoring and the Dynatrace SLI Provider](https://keptn.sh/docs/0.6.0/reference/monitoring/dynatrace/) installed and configured on the Keptn machine.
 - An Ubuntu VM used to host your website and the Unleash Feature Flag service.
 
+## Networking Prerequisites
+For this demo:
+- The `keptn` VM will need to allow inbound HTTP & HTTPS traffic from Dynatrace SaaS.
+- The `application` VM (running `proxy`, `app`, `unleash` and `postgres`) will need to allow inbound HTTP & HTTPS traffic from the `keptn` machine.
+
 # Tutorial Overview
 This tutorial will run 4x containers on your VM. You'll need the OneAgent deployed on this VM first.
 
