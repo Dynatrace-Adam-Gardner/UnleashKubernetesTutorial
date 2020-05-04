@@ -125,7 +125,7 @@ Note that the `username` and `token` can be set to anything.
 The `remediation-service` pod must be recreated so that it picks up this new secret.
 
 ```
-kubectl create secret -n keptn generic unleash --from-literal="UNLEASH_SERVER=http://<YOUR-VM-IP>/unleash/api" --from-literal="UNLEASH_USER=me" --from-literal="UNLEASH_TOKEN=whatever"
+kubectl create secret -n keptn generic unleash --from-literal="UNLEASH_SERVER_URL=http://<YOUR-VM-IP>/unleash/api" --from-literal="UNLEASH_USER=me" --from-literal="UNLEASH_TOKEN=whatever"
 kubectl delete pod -n keptn -l "run=remediation-service"
 ```
 
@@ -143,6 +143,12 @@ Run the load generator which will create errors. In another tab, keep refreshing
 cd ~/unleashtutorial
 ./loadGenErrors.sh
 ```
+
+- You will see `HTTP 500` errors being shown. The failure rate registered by Dynatrace on the `unleash-demo:80` service will also increase.
+- Dynatrace will register a problem and push a notification to Keptn.
+- The Keptn `remediation-service` will activate and toggle the feature based on the `remediations.yaml` file.
+- The feature flag will be `enabled` and the CDN page will be served (from GitHub) ([this is the actual page](https://github.com/agardnerIT/OddFiles/blob/master/index2.html))
+
 
 ----
 
