@@ -124,10 +124,10 @@ Find the `unleash-demo:80` nginx service, edit the anomaly detection settings an
 # Manually Test Flag
 Prove that the feature flag works:
 
-- Go to the app (`http://<VM-IP>`) and refresh the page. Nothing happens.
-- Enable the feature flag and refresh the app. You'll see a green banner that says the page is served from GitHub.
+- Go to the app (`http://<VM-IP>`) and refresh the page. You should still see the blue banner. This page is served from the `app` container.
+- Enable the feature flag and refresh the app. Notice the green banner, this page is served from GitHub.
 
-Once done, set the flag to `disabled` so that traffic is being served by the app.
+Once done, set the flag to `disabled` so that traffic is being served by the app (blue banner).
 
 ----
 
