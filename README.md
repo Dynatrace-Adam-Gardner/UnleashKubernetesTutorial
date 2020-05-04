@@ -18,7 +18,7 @@ For this demo:
 - The `application` VM (running `proxy`, `app`, `unleash` and `postgres`) will need to allow inbound HTTP & HTTPS traffic from the `keptn` machine.
 
 # Tutorial Overview
-This tutorial will run 4x containers on your VM. You'll need the OneAgent deployed on this VM first.
+This tutorial will run 4x containers on your application VM. You'll need the OneAgent deployed on this VM first.
 
 1. An nginx reverse proxy to access app on port `80` (`http://127.0.0.1`)
 1. An unleash feature flag container (`http://127.0.0.1/unleash`)
@@ -29,7 +29,7 @@ If the feature flag is `disabled` the app will serve `index.html` from within th
 If the feature flag is `enabled` the app will serve a page hosted on GitHub (`https://raw.githubusercontent.com/agardnerIT/OddFiles/master/index2.html`)
 
 # Deploy the OneAgent
-Deploy the OneAgent on your VM.
+Deploy the OneAgent on the application VM.
 
 # Install & Configure: Git and Docker
 
