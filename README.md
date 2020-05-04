@@ -93,8 +93,12 @@ docker build -t proxy ./proxy && docker run -d -p 80:80 --name proxy --network a
 
 Running `docker ps` should show 4x containers: `proxy`, `app`, `unleash` and `postgres`.
 
+# Validate UI
+
 - The Unleash UI should now be available on `http://<VM-IP>/unleash`
 - The app should now be available on `http://<VM-IP>`
+
+Validate that both of these are available by visiting them in a browser.
 
 # Validate Dynatrace Tags
 
