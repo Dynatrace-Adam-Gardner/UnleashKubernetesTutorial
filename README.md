@@ -44,6 +44,13 @@ sudo usermod -aG docker $USER
 
 Launch a new terminal window to pick up your new permissions. Validate it works with `docker ps`
 
+You should see:
+
+```
+CONTAINER ID    IMAGE    COMMAND    CREATED    STATUS    PORTS    NAMES
+
+```
+
 # Clone This Repo
 ```
 git clone https://github.com/agardnerit/unleashtutorial
