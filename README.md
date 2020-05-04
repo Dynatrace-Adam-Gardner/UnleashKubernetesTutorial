@@ -160,5 +160,6 @@ docker rm proxy app unleash postgres
 docker rmi proxy app unleash postgres
 docker network rm agardner-net
 # On the Keptn Machine
+keptn delete project website
 kubectl delete secret -n keptn unleash && kubectl delete pod -n keptn -l 'run=remediation-service'
 ```
