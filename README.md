@@ -102,7 +102,7 @@ Validate that both of these are available by visiting them in a browser.
 
 # Validate Dynatrace Tags
 
-In your Dynatrace tenant, open the `Transactions and Services` page and navigate to the `unleash-demo` service.
+In your Dynatrace tenant, open the `Transactions and Services` page, select the `Keptn website production` management zone to filter your services and navigate to the `unleash-demo` service.
 
 Ensure that your service is tagged with the following:
 
@@ -150,6 +150,8 @@ keptn create project website --shipyard=shipyard.yaml
 keptn create service front-end --project=website
 keptn add-resource --project=website --service=front-end --stage=production --resource=remediations.yaml -- resourceUri=remediation.yaml
 ```
+
+The values in the `remediations.yaml` file tell Keptn how to response when it sees a failure rate increase problem for this project (`website`), service (`front-end`) and stage (`production`)
 
 # Create Secret & Bounce Remediation Service
 Note that the `username` and `token` can be set to anything.
