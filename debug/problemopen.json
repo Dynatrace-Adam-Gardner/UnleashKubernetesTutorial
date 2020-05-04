@@ -1,1 +1,31 @@
-{}
+{
+  "contenttype": "application/json",
+  "data": {
+    "ImpactedEntity": "Failure rate increase on Web request service unleash-demo:80",
+    "PID": "-4349221618435898381",
+    "ProblemDetails": {
+      "displayName": "381",
+      "endTime": -1,
+      "hasRootCause": false,
+      "id": "-4349221618435898381_1588562640000V2",
+      "impactLevel": "SERVICE",
+      "severityLevel": "ERROR",
+      "startTime": 1588562640000,
+      "status": "OPEN"
+    },
+    "ProblemID": "381",
+    "ProblemTitle": "Failure rate increase",
+    "State": "OPEN",
+    "labels": null,
+    "project": "website",
+    "service": "front-end",
+    "stage": "production"
+  },
+  "id": "b33aa879-ddfd-4aec-82f7-5da2097320e1",
+  "source": "dynatrace",
+  "specversion": "0.2",
+  "time": "2020-05-04T03:32:37.423Z",
+  "type": "sh.keptn.event.problem.open",
+  "shkeptncontext": "2d343334-3932-4231-b631-383433353839",
+  "label": "Problem open"
+}
