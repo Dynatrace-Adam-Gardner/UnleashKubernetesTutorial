@@ -96,6 +96,18 @@ Running `docker ps` should show 4x containers: `proxy`, `app`, `unleash` and `po
 - The Unleash UI should now be available on `http://<VM-IP>/unleash`
 - The app should now be available on `http://<VM-IP>`
 
+# Validate Dynatrace Tags
+
+In your Dynatrace tenant, open the `Transactions and Services` page and navigate to the `unleash-demo` service.
+
+Ensure that your service is tagged with the following:
+
+`keptn_project:website`, `keptn_service:front-end` and `keptn_stage:production`
+
+These tags are created when you [installed the Dynatrace service on Keptn](https://keptn.sh/docs/0.6.0/reference/monitoring/dynatrace) . If you do not see these tags, please **STOP** and ensure you follow this instructions linked above.
+
+This tutorial **WILL NOT WORK** without those tags.
+
 # Create Feature Flag
 - Go to `http://<VM-IP>/unleash` and login (use any fake values you like to login)
 - Create a feature flag called `EnableStaticContent` (case sensitive and must be called this).
@@ -108,18 +120,6 @@ Prove that the feature flag works:
 - Enable the feature flag and refresh the app. You'll see a green banner that says the page is served from GitHub.
 
 Once done, set the flag to `disabled` so that traffic is being served by the app.
-
-# Validate Dynatrace Tags
-
-In your Dynatrace tenant, open the `Transactions and Services` page and navigate to the `unleash-demo` service.
-
-Ensure that your service is tagged with the following:
-
-`keptn_project:website`, `keptn_service:front-end` and `keptn_stage:production`
-
-These tags are created when you [installed the Dynatrace service on Keptn](https://keptn.sh/docs/0.6.0/reference/monitoring/dynatrace) . If you do not see these tags, please **STOP** and ensure you follow this instructions linked above.
-
-This tutorial **WILL NOT WORK** without those tags.
 
 ----
 
