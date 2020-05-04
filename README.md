@@ -148,7 +148,7 @@ git clone http://github.com/agardnerit/unleashtutorial
 cd unleashtutorial
 keptn create project website --shipyard=shipyard.yaml
 keptn create service front-end --project=website
-keptn add-resource --project=website --service=front-end --stage=production --resource=remediations.yaml -- resourceUri=remediation.yaml
+keptn add-resource --project=website --service=front-end --stage=production --resource=remediations.yaml --resourceUri=remediation.yaml
 ```
 
 The values in the `remediations.yaml` file tell Keptn how to response when it sees a failure rate increase problem for this project (`website`), service (`front-end`) and stage (`production`)
