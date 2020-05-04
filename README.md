@@ -14,7 +14,7 @@ Application is running in production and suddenly an error occurs. The app shoul
 
 ## Networking Prerequisites
 For this demo:
-- The `keptn` VM will need to allow inbound HTTP & HTTPS traffic from Dynatrace SaaS.
+- The `keptn` VM will need to allow inbound HTTPS traffic from Dynatrace SaaS.
 - The `application` VM (running `proxy`, `app`, `unleash` and `postgres`) will need to allow inbound HTTP & HTTPS traffic from the `keptn` machine.
 
 # Tutorial Overview
@@ -153,7 +153,6 @@ cd ~/unleashtutorial
 - Dynatrace will register a problem and push a notification to Keptn.
 - The Keptn `remediation-service` will activate and toggle the feature based on the `remediations.yaml` file.
 - The feature flag will be `enabled` and the CDN page will be served (from GitHub) ([this is the actual page](https://github.com/agardnerIT/OddFiles/blob/master/index2.html))
-
 
 ----
 
