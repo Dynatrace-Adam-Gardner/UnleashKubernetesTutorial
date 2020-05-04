@@ -114,7 +114,7 @@ This tutorial **WILL NOT WORK** without those tags.
 
 # Configure Problem Sensitivity
 For demo purposes, we will set Dynatrace to be extremely sensitive to failures.
-Find the `unleash-demo:80` nginx service, edit the settings and set the failure rate detection to manual, the sensitivity to high and the requests per minute level to be `1 request per minute`.
+Find the `unleash-demo:80` nginx service, edit the anomaly detection settings and set the failure rate detection to manual, the sensitivity to high and the requests per minute level to be `1 request per minute`.
 
 # Create Feature Flag
 - Go to `http://<VM-IP>/unleash` and login (use any fake values you like to login)
