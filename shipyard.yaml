@@ -1,2 +1,3 @@
 stages:
   - name: "production"
+    remediation_strategy: "automated"
