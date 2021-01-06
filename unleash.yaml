@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: unleash-deployment
+  labels:
+    app: unleash
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: unleash
+  template:
+    metadata:
+      labels:
+        app: unleash
+    spec:
+      containers:
+      - name: unleash
+        image: adamgardnerdt/unleash:v1
+        ports:
+        - containerPort: 4242
+        env:
+        - name: DATABASE_URL
+          value: "postgres://postgres:mysecretpassword@postgres-postgresql:5432/unleash"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: unleash
+spec:
+  type: LoadBalancer
+  selector:
+    app: unleash
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 4242
