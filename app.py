@@ -4,7 +4,7 @@ import requests
 
 app = Flask(__name__)
 
-client = UnleashClient(url="http://unleash:4242/api",app_name="My Program",refresh_interval=1)
+client = UnleashClient(url="http://unleash/api",app_name="My Program",refresh_interval=1)
 client.initialize_client()
 
 @app.route('/', methods=['GET'])
