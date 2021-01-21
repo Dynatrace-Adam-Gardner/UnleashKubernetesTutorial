@@ -10,6 +10,7 @@ cd ~
 git clone https://github.com/Dynatrace-Adam-Gardner/UnleashKubernetesTutorial
 
 # Create a cluster
+chmod +x ~/createCluster.sh
 GOOGLE_PROJECT=*** CLUSTER_NAME=*** ./createCluster.sh 
 ```
 
