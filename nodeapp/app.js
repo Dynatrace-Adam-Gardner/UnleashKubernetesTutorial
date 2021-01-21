@@ -46,7 +46,7 @@ res.send(req.cookies);
 
 app.get('/', function (req, res) {
     
-    res.cookie('foo','a, b, c');
+    res.cookie('a, b, c');
     
     const {
       isEnabled,
